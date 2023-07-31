@@ -28,7 +28,7 @@ fn main() {
     println!("255");
 
     for y in (0..IMAGE_HEIGHT).rev() {
-        eprintln!("Writing line {}...", y + 1);
+        eprint!("[i] Writing line {}/{}\r", IMAGE_HEIGHT - y, IMAGE_HEIGHT);
 
         for x in 0..IMAGE_WIDTH {
 	    let u: f64 = x as f64 / (IMAGE_WIDTH - 1) as f64;
@@ -39,5 +39,5 @@ fn main() {
 	    color::write_color(&pixel)
         }
     }
-    eprintln!("Done!")
+    eprintln!("\n[+] Done!")
 }
