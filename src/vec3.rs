@@ -1,5 +1,6 @@
 pub type Point3 = Vec3;
-pub type Color = Vec3;
+
+pub struct Color(pub Vec3);
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vec3 {
