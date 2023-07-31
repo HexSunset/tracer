@@ -48,11 +48,11 @@ impl Vec3 {
     }
 
     pub fn normalize(self) -> Vec3 {
-	self / self.len()
+        self / self.len()
     }
 
     pub fn dot(&self, other: Vec3) -> f64 {
-	self.x() * other.x() + self.y() * other.y() + self.z() * other.z()
+        self.x() * other.x() + self.y() * other.y() + self.z() * other.z()
     }
 }
 
@@ -106,6 +106,6 @@ impl std::ops::Div<f64> for Vec3 {
 
 impl std::fmt::Display for Vec3 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-	write!(f, "{}, {}, {}", self.x, self.y, self.z)
+        write!(f, "{}, {}, {}", self.x, self.y, self.z)
     }
 }

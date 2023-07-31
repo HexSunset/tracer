@@ -1,11 +1,11 @@
-pub mod vec3;
 pub mod color;
 pub mod ray;
+pub mod vec3;
 
+pub use ray::Ray;
 pub use vec3::Color;
 pub use vec3::Point3;
 pub use vec3::Vec3;
-pub use ray::Ray;
 
 const ASPECT_RATIO: f64 = 16.0 / 9.0;
 const IMAGE_WIDTH: u32 = 400;
