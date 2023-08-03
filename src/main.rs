@@ -41,8 +41,17 @@ fn main() {
     writeln!(file, "{} {}", IMAGE_WIDTH, IMAGE_HEIGHT).unwrap();
     writeln!(file, "255").unwrap();
 
+    // Progress reporter
+    let mut debug_output = BufWriter::new(std::io::stderr());
+
     for y in (0..IMAGE_HEIGHT).rev() {
-        eprint!("[i] Writing line {}/{}\r", IMAGE_HEIGHT - y, IMAGE_HEIGHT);
+        write!(
+            debug_output,
+            "[i] Writing line {}/{}\r",
+            IMAGE_HEIGHT - y,
+            IMAGE_HEIGHT
+        )
+        .unwrap();
 
         for x in 0..IMAGE_WIDTH {
             let u: f64 = x as f64 / (IMAGE_WIDTH - 1) as f64;
@@ -57,5 +66,5 @@ fn main() {
         }
     }
 
-    eprintln!("\n[+] Done!");
+    writeln!(debug_output, "\r[+] Done! Wrote {} lines", IMAGE_HEIGHT).unwrap();
 }
